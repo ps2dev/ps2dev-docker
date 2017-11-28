@@ -13,11 +13,19 @@
 
    docker build -t ps2dev-docker .
 
+ Copy the helper script:
+
+   cp ps2dev-docker.sh /usr/local/bin
+
  ==================
   How do I use it?
  ==================
 
- Run 'make' on the current directory:
+ Use the helper script to run 'make' on the current directory:
+
+   ps2dev-docker.sh make
+
+ Or, manually run 'make' on the current directory:
 
    docker run -v `pwd`:/build ps2dev-docker /bin/bash -c "cd /build && make"
 
