@@ -2,8 +2,8 @@ FROM ubuntu:17.10
 MAINTAINER Naomi Peori <naomi@peori.ca>
 
 ENV PS2DEV /usr/local/ps2dev
-ENV PS2SDK $PS2DEV/ps2sdk
-ENV PATH $PATH:$PS2DEV/bin:$PS2DEV/ee/bin:$PS2DEV/iop/bin:$PS2DEV/dvp/bin:$PS2SDK/bin
+ENV PS2SDK ${PS2DEV}/ps2sdk
+ENV PATH ${PATH}:${PS2DEV}/bin:${PS2DEV}/ee/bin:${PS2DEV}/iop/bin:${PS2DEV}/dvp/bin:${PS2SDK}/bin
 
 RUN \
   apt-get -y update && \
@@ -31,3 +31,5 @@ RUN \
     make && \
   cd .. && \
   rm -Rf ps2sdk-ports
+
+WORKDIR /build
