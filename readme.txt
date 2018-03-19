@@ -25,10 +25,6 @@
 
    ps2dev-docker.sh make
 
- Or, manually run 'make' on the current directory:
-
-   docker run -v `pwd`:/build ps2dev-docker make
-
  ============================
   How do I save and load it?
  ============================

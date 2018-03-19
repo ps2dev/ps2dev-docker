@@ -1,5 +1,5 @@
 #!/bin/sh
 
 if [ ! -z "$*" ]; then
-  docker run -v `pwd`:/build ps2dev-docker $*
+  docker run -v --rm `pwd`:/build ps2dev-docker $*
 fi
