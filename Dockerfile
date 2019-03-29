@@ -139,6 +139,18 @@ RUN \
   rm -Rf ps2sdk-ports
 
 ##
+## ps2eth
+##
+
+RUN \
+  git clone https://github.com/ps2dev/ps2eth && \
+  pushd ps2eth && \
+    make && \
+    make install && \
+    popd && \
+  rm -Rf ps2eth
+
+##
 ## ps2client
 ##
 
