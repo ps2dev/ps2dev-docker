@@ -12,7 +12,7 @@ ENV PATH="${PATH}:${PS2DEV}/bin:${PS2DEV}/ee/bin:${PS2DEV}/iop/bin:${PS2DEV}/dvp
 RUN \
   apk update && \
   apk upgrade && \
-  apk add --no-cache bash gcc git make musl-dev patch wget
+  apk add --no-cache bash gcc git make musl-dev patch ucl-dev wget zlib-dev
 
 SHELL ["/bin/bash", "-c"]
 
@@ -77,7 +77,7 @@ RUN \
         popd; \
       done && \
     popd && \
-  rm -Rf gcc-*
+  rm -Rf newlib-*
 
 ##
 ## gcc (stage 2)
@@ -149,3 +149,15 @@ RUN \
     make install && \
     popd && \
   rm -Rf ps2client
+
+##
+## ps2-packer
+##
+
+RUN \
+  git clone https://github.com/ps2dev/ps2-packer && \
+  pushd ps2-packer && \
+    make && \
+    make install && \
+    popd && \
+  rm -Rf ps2-packer
